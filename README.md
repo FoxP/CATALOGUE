@@ -23,31 +23,31 @@ Ne nécessite que [Microsoft Excel](https://fr.wikipedia.org/wiki/Microsoft_Exce
 - Easter egg inclus
 - ...
 
-## Utilisation
+## Captures d'écran
 
 - Modification du catalogue
 
-<img src=".github/demo_1.png">
+<a src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_1.png"><img src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_1.png"></a>
 
 - Ajout / édition d'une fiche
 
-<img src=".github/demo_2.png">
+<a src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_2.png"><img src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_2.png"></a>
 
 - Recherche / tri dans le catalogue
 
-<img src=".github/demo_3.png">
+<a src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_3.png"><img src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_3.png"></a>
 
 - Statistiques des fiches du catalogue
 
-<img src=".github/demo_4.png">
+<a src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_4.png"><img src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_4.png"></a>
 
 - Exemple de fiche simple : snippet
 
-<img src=".github/demo_5.png">
+<a src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_5.png"><img src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_5.png"></a>
 
 - Exemple de fiche complexe : markdown, images, ...
 
-<img src=".github/demo_6.png">
+<a src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_6.png"><img src="https://raw.githubusercontent.com/FoxP/CATALOGUE/master/.github/demo_6.png"></a>
 
 ## Limitations
 Ahem... Comment ça ? Des **LIMITATIONS**..? Utiliser Excel pour générer des pages web ?! C'est une **FONCTIONNALITÉ** ! :sunglasses:

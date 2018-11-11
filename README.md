@@ -23,6 +23,32 @@ Ne nécessite que [Microsoft Excel](https://fr.wikipedia.org/wiki/Microsoft_Exce
 - Easter egg inclus
 - ...
 
+## Utilisation
+
+- Modification du catalogue
+
+<img src=".github/demo_1.png">
+
+- Ajout / édition d'une fiche
+
+<img src=".github/demo_2.png">
+
+- Recherche / tri dans le catalogue
+
+<img src=".github/demo_3.png">
+
+- Statistiques des fiches du catalogue
+
+<img src=".github/demo_4.png">
+
+- Exemple de fiche simple : snippet
+
+<img src=".github/demo_5.png">
+
+- Exemple de fiche complexe : markdown, images, ...
+
+<img src=".github/demo_6.png">
+
 ## Limitations
 Ahem... Comment ça ? Des **LIMITATIONS**..? Utiliser Excel pour générer des pages web ?! C'est une **FONCTIONNALITÉ** ! :sunglasses:
 

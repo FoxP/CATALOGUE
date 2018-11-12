@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<!--
+	Auteur :
+				▄▄▄▄▄▄▄  ▄ ▄▄ ▄▄▄▄▄▄▄ 
+				█ ▄▄▄ █ ██ ▀▄ █ ▄▄▄ █ 
+				█ ███ █ ▄▀ ▀▄ █ ███ █ 
+				█▄▄▄▄▄█ █ ▄▀█ █▄▄▄▄▄█ 
+				▄▄ ▄  ▄▄▀██▀▀ ▄▄▄ ▄▄  
+				 ▀█▄█▄▄▄█▀▀ ▄▄▀█ █▄▀█ 
+				 █ █▀▄▄▄▀██▀▄ █▄▄█ ▀█ 
+				▄▄▄▄▄▄▄ █▄█▀ ▄ ██ ▄█  
+				█ ▄▄▄ █  █▀█▀ ▄▀▀  ▄▀ 
+				█ ███ █ ▀▄  ▄▀▀▄▄▀█▀█ 
+				█▄▄▄▄▄█ ███▀▄▀ ▀██ ▄  
+	Fonction :
+				Catalogue Excel / HTML de fonctions, morceaux de codes, astuces, méthodes, fichiers, ... fréquemment utilisés
+				Capitalise le savoir tout en fonctionnant sur des systèmes d'exploitation avec des politiques de sécurité strictes
+				Nécessite Microsoft Excel (2010 ou supérieur), Visual Basic for Applications, ainsi qu'un navigateur internet récent
+-->
+<html>
+	<head>
+		<title>CATALOGUE</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/png" href="favicon.png">
+		<!-- <link rel="stylesheet" href="./CSS/jquery.dataTables/jquery.dataTables.css"> -->
+		<!-- <link rel="stylesheet" href="./CSS/jquery-ui/jquery-ui.css"> -->
+		<!-- <link rel="stylesheet" href="./CSS/jquery.datatables.yadcf/jquery.datatables.yadcf.css"> -->
+		<!-- <link rel="stylesheet" href="./CSS/catalogue/catalogue.css"> -->
+		<link rel="stylesheet" href="./CSS/style-compressed/style-compressed.css">
+		<!-- <script src="./JS/jquery.min.js"></script> -->
+		<!-- <script src="./JS/jquery-ui.min.js"></script> -->
+		<!-- <script src="./JS/jquery.dataTables.min.js"></script> -->
+		<!-- <script src="./JS/jquery.dataTables.yadcf.js"></script> -->
+		<!-- <script src="./JS/chart.min.js"></script> -->
+		<!-- <script src="./JS/Chart.PieceLabel.js"></script> -->
+		<!-- <script src="./JS/chartjs-plugin-deferred.min.js"></script> -->
+		<!-- <script src="./JS/catalogue.js"></script> -->
+		<script src="./JS/script-compressed.js"></script>
+	</head>
+	<body>
+		<section id="catalogue">
+			<h1>Catalogue</h1>
+			<table id="catalogueTable">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Titre de la fiche</th>
+						<th>Version</th>
+						<th>Statut</th>
+						<th>Logiciel</th>
+						<th>Langage</th>
+						<th>Type</th>
+						<th>Créé le</th>
+						<th>Modifié le</th>
+						<th>Utilisateur</th>
+						<th>Mots-clés</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class='187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1'>
+						<td>187028</td>
+						<td><a href='..\SHEETS\187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1.html'>Syntaxe et exemples du langage de balisage Markdown</a></td>
+						<td>1</td>
+						<td>Released</td>
+						<td>Autre</td>
+						<td>Autre</td>
+						<td>Process</td>
+						<td>2016/12/05</td>
+						<td>2016/12/05</td>
+						<td>Paul RENARD</td>
+						<td><span>markdown</span><span>syntaxe</span><span>langage</span><span>exemple</span></td>
+					</tr>
+					<tr class='387556_Utilisation_d_un_certificat_pour_signer_un_classeur_Excel_embarquant_du_code_VBA_1'>
+						<td>387556</td>
+						<td><a href='..\SHEETS\387556_Utilisation_d_un_certificat_pour_signer_un_classeur_Excel_embarquant_du_code_VBA_1.html'>Utilisation d'un certificat pour signer un classeur Excel embarquant du code VBA</a></td>
+						<td>1</td>
+						<td>Released</td>
+						<td>Excel</td>
+						<td>Autre</td>
+						<td>Process</td>
+						<td>2017/2/10</td>
+						<td>2017/2/25</td>
+						<td>Paul RENARD</td>
+						<td><span>excel</span><span>classeur</span><span>certificat</span><span>cer</span><span>installation</span><span>carte</span><span>puce</span><span>macro</span><span>désactivé</span><span>sécurité</span><span>signer</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<section id="stats">
+			<h1>Statistiques</h1>
+			<div id="statsCharts">
+				<span><canvas id="languagesChart"></canvas></span>
+				<span><canvas id="softwaresChart"></canvas></span>
+				<span><canvas id="typesChart"></canvas></span>
+				<span><canvas id="usersChart"></canvas></span>
+				<span><canvas id="statusChart"></canvas></span>
+			</div>
+		</section>
+		<a href="#" class="scrollup">˄</a>
+	</body>
+</html>

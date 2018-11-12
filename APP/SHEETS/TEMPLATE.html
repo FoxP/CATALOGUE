@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{TEMPLATE_TITLE}</title>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/png" href="favicon.png">
+		<link rel="stylesheet" href="./CSS/template/template.css">
+		<link rel="stylesheet" href="./CSS/highlightjs/vs.css">
+		<link rel="stylesheet" href="./CSS/fancybox/jquery.fancybox.css">
+		<link rel="stylesheet" href="./CSS/fancybox/jquery.fancybox-thumbs.css">
+		<link rel="stylesheet" href="./CSS/icons/icons.css">
+		<link rel="stylesheet" href="./CSS/tipped/tipped.css">
+		<script src="./JS/marked.min.js"></script>
+		<script src="./JS/highlight.pack.js"></script>
+		<script src="./JS/jquery-1.9.0.min.js"></script>
+		<script src="./JS/jquery.fancybox.pack.js"></script>
+		<script src="./JS/jquery.mousewheel.pack.js"></script>
+		<script src="./JS/jquery.fancybox-thumbs.js"></script>
+		<script src="./JS/d3.min.js"></script>
+		<script src="./JS/d3.layout.cloud.js"></script>
+		<script src="./JS/qrcode.min.js"></script>
+		<script src="./JS/tipped.min.js"></script>
+		<script src="./JS/ohsnap.min.js"></script>
+	</head>
+	<section>
+		<h1><span>{TEMPLATE_ID}</span> — {TEMPLATE_TITLE} — v<span>{TEMPLATE_VERSION}</span></h1>
+		<p id="tags">
+			<span>{TEMPLATE_STATUS}</span>
+			<span>{TEMPLATE_SOFTWARE}</span>			
+			<span>{TEMPLATE_LANGUAGE}</span>
+			<span>{TEMPLATE_TYPE}</span>
+{TEMPLATE_KEYWORDS}		</p>
+	</section>
+	<section id="problem">
+		<h1>Problème</h1>
+		<span>
+{TEMPLATE_PROBLEM}
+		</span>
+	</section>
+	<section id="solution">
+		<h1>Solution</h1>
+		<span>
+{TEMPLATE_SOLUTION}
+		</span>
+	</section>	
+	<section id="code">
+		<h1>Code</h1>
+		<pre>
+			<code class="{TEMPLATE_IDLANG}">
+{TEMPLATE_SNIPPET_CODE}
+			</code>
+		</pre>
+	</section>
+	<section id="pictures">
+		<h1><a target="_blank" href="{TEMPLATE_FOLDER}">Photos</a></h1>
+		<span>
+{TEMPLATE_PICTURES}		</span>
+	</section>
+	<section id="documents">
+		<h1><a target="_blank" href="{TEMPLATE_FOLDER}">Documents</a></h1>
+		<span>
+{TEMPLATE_DOCUMENTS}		</span>
+	</section>
+	<section id="menu">
+		<img src="./CSS/template/IMG/catalogue.png" id="catalogue" alt="Accéder au catalogue de fiches" title="Accéder au catalogue de fiches"/><img src="./CSS/template/IMG/versions.png" id="versions" alt="Accéder aux versions précédentes" title="Accéder aux versions précédentes"/><img src="./CSS/template/IMG/qrcode.png" id="qrcode" alt="QR Code de la fiche" title="QR Code de la fiche"/><img src="./CSS/template/IMG/folder.png" id="folder" alt="Pièces jointes de la fiche" title="Pièces jointes de la fiche"/><img src="./CSS/template/IMG/print.png" id="print" alt="Imprimer la fiche" title="Imprimer la fiche"/><img src="./CSS/template/IMG/mail.png" id="mail" alt="Envoyer la fiche par mail" title="Envoyer la fiche par mail"/><img src="./CSS/template/IMG/clipboard.png" id="clipboard" alt="Copier le code dans le presse papier" title="Copier le code dans le presse papier"/>
+	</section>
+	<script src="./JS/template.js"></script>
+</html>

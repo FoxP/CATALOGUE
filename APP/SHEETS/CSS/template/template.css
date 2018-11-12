@@ -1,0 +1,466 @@
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Feuille de style CSS principale des fiches HTML du catalogue						   			   				   			   				   	   */
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+
+html {
+	background-color: #ececec;
+	padding-bottom: 15px;
+}
+
+/* Titres */
+section > h1:first-child {
+	text-align: center;
+	color: white;
+	border: 1px solid #888888;
+	padding: 10px;
+	margin-top: 18px;
+	border-radius: 3px;
+	box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+	font-weight: 200;
+	background:
+	linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+	linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+	linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+	linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+	linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+	linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+	background-color: #131313;
+	background-size: 20px 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+/* Iframe */
+iframe {
+	border: 0;
+}
+
+blockquote {
+	margin-left: 32px;
+	border-left: 4px solid #CCC;
+	padding-left: 8px;
+}
+
+/* Séparateur horizontal */
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/* Ajout triangle à droite des titres */
+#pictures h1::after, #documents h1::after, #code h1::after, #solution > h1:first-child::after, #problem > h1:first-child::after {
+    content: " ▾";
+    line-height: 20px;
+	color: #4585f2;
+}
+
+.down::after {
+	content: " ▴"!important;
+}
+
+/* Titres contenant des liens non soulignés */
+h1 a {
+	color: white;
+	text-decoration: none;
+	outline: 0;
+	border-bottom: 2px solid rgba(255, 255, 255, 0);
+	transition: border 500ms ease; 
+}
+
+/* Titres contenant des liens soulignés au survol */
+h1 a:hover {
+	border-bottom: 2px solid white;
+}
+
+/* Placement vertical correct du conteneur du code */
+#code pre {
+	margin-bottom: -30px;
+	margin-top: 5px;
+}
+
+#code h1 {
+	margin-bottom: 0;
+}
+
+/* Mots-clés */
+#tags span {
+	border: 1px solid #888888;
+	border-radius: 3px;
+	box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+	padding: 5px;
+	background-color: white;
+	color: #444;
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	padding-left: 30px;
+	background-position: center left;
+	display: inline-block;
+    overflow:hidden;
+}
+
+#tags span:nth-child(n+1) {
+	cursor: pointer;
+	cursor: hand;
+}
+
+#tags span:hover {
+    transform: translate(0,-2px);
+	transition-property: transform;
+    transition-duration: 0.1s;
+}
+
+/* Icone à gauche des titres */
+#pictures h1::before, #documents h1::before, #code h1::before, #solution > h1:first-child::before, #problem > h1:first-child::before, #editor h1::before {
+	content: "";
+    display: block;
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin: 2px 8px 0 0;
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	background-position: center left;
+}
+
+#problem > h1:first-child::before {
+	background-image: url('./IMG/problem.png');
+}
+
+#solution > h1:first-child::before {
+	background-image: url('./IMG/solution.png');
+}
+
+#code h1::before {
+	background-image: url('./IMG/code.png');
+}
+
+#pictures h1::before {
+	background-image: url('./IMG/picture.png');
+}
+
+#editor h1::before {
+	background-image: url('./IMG/editor.png');
+}
+
+#documents h1::before {
+	background-image: url('./IMG/document.png');
+}
+
+/* Icone mots-clés */
+#tags span:nth-child(1){
+	background-image: url('./IMG/version.png');
+}
+
+#tags span:nth-child(2){
+	background-image: url('./IMG/software.png');
+}
+
+#tags span:nth-child(3){
+	background-image: url('./IMG/language.png');
+}
+
+#tags span:nth-child(4){
+	background-image: url('./IMG/type.png');
+}
+
+#tags span:nth-child(n+5){
+	background-image: url('./IMG/keyword.png');
+}
+
+/* Images galerie */
+#pictures img {
+	max-height: 198px;
+	margin-top: 15px;
+	margin-bottom: -5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	border: 2px solid #444;
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.4);
+	transition-duration: 0.1s;
+}
+
+/* Animation images galerie au survol */
+#pictures img:hover {
+	transform: scale(1.02);
+	background-color: white;
+	transition-property: transform;
+    transition-duration: 0.1s;
+}
+
+#problem  > span:nth-child(2), #solution > span:nth-child(2), #code pre code {
+	display: block;
+	word-wrap: break-word;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px solid #888888;
+	border-radius: 3px 3px 0px 0px;
+	background-color: white;
+	color: #444;
+}
+
+#code pre code {
+	white-space: pre-wrap;
+}
+
+/* Ombre sous les encarts "Problème" et "Solution" - 1/3 */
+#problem > span, #solution > span, #code pre code {
+	position: relative;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+/* Ombre sous les encarts "Problème" et "Solution" - 2/3 */
+#problem > span:before, #problem > span:after, #solution > span:before, #solution > span:after, #code pre code:before, #code pre code:after {
+	content: "";
+	position: absolute; 
+	z-index: -1;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	top: 50%;
+	bottom: 0;
+	left: 10px;
+	right: 10px;
+	border-radius: 100px / 10px;
+}
+
+/* Ombre sous les encarts "Problème" et "Solution" - 3/3 */
+#problem > span:after, #solution > span:after, #code pre code:after {
+	right: 10px; 
+    left: auto;
+	transform: skew(8deg) rotate(3deg);
+}
+
+#pictures, #documents {
+	text-align: center;
+}
+
+/* Curseur main sur les titres car possibilité de cacher / afficher le contenu si clic */
+#pictures h1, #documents h1, #code h1, #solution > h1:first-child, #problem > h1:first-child {
+	cursor: pointer;
+	cursor: hand;
+	text-transform: none;
+	transition: all 0.5s ease;
+}
+
+/* Animation d'écartement des lettres au survol des titres dont on peut cacher / afficher le contenu si clic */
+#pictures h1:hover, #documents h1:hover, #code h1:hover, #solution > h1:first-child:hover, #problem > h1:first-child:hover {
+	letter-spacing: 3px;
+	transition: all 0.5s ease;
+}
+
+#editor h1 {
+	text-transform: none;
+}
+
+#pictures h1, #documents h1 {
+	margin-bottom: 0px;
+}
+
+/* Tableaux */
+table {
+	margin-top: 10px;
+	margin-bottom: 10px;
+    border-collapse: collapse;
+}
+
+table td, table th {
+    border: 1px solid #a9a9a9;
+    padding: 4px;
+}
+
+table tr:nth-child(even){background-color: #ececec;}
+
+table tbody tr:hover {background-color: #ddd;}
+
+table th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+	border-bottom: 2px solid #444;
+}
+
+/* Code markdown */
+#solution span :not(pre) > code, #problem span :not(pre) > code {
+	background-color: #ececec;
+	display: inline-block;
+	border: 1px solid #9e9e9e;
+	border-radius: 3px;
+	padding: 0 .2em;
+}
+
+#solution span pre, #problem span pre {
+	background-color: #ececec;
+	border: 1px solid #9e9e9e;
+	border-radius: 3px;
+	padding: 0 .2em;
+	max-width: 100%;
+    word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+/* Images markdown */
+#solution img, #problem img {
+	max-width: 100%;
+}
+
+/* Menu d'utilitaires */
+#menu img {
+	height: 25px;
+	width: 25px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	opacity: 0.5;
+}
+
+#menu img:hover {
+	opacity: 1.0;
+}
+
+#menu {
+	top: 0;
+	right: 0;
+	position: fixed;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-left: 1px solid #888888;
+	border-bottom: 1px solid #888888;
+	border-radius: 0 0 0 5px;
+}
+
+/* Nuage de mots clés */
+#svg {
+	display: block;
+    margin: 0 auto;
+	padding-top : 20px;
+	padding-bottom : 20px;
+}
+
+#svg text {
+	cursor: pointer;
+	cursor: hand;
+}
+
+#svg text:hover {
+	text-decoration: underline;
+}
+
+/* Notifications */
+.alert {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid #888888;
+	border-radius: 5px;
+	position: fixed;
+	bottom: 0px;
+	right: 21px;
+	float: right;
+	clear: right;
+}
+
+.alert-black {
+	color: #444;
+	background-color: white;
+}
+
+/* Pour impression */
+@media print {
+	body, html {
+		background-color: #fff!important;
+	}
+	#tags span {
+		background: transparent!important;
+		box-shadow: none!important;
+		border-radius: 0!important;
+		border: 0!important;
+		padding: 0!important;
+	}
+	#tags span:not(:last-child)::after {
+		content: ","!important;
+	}
+	section:first-child {
+		margin-bottom: -20px;
+	}
+	#problem  > span:nth-child(2), #solution > span:nth-child(2), #code pre code {
+		border: none!important;
+		border-radius: 0!important;
+	}
+	#problem span, #solution span, #code pre code {
+		box-shadow: none!important;
+	}
+	#problem span:before, #problem span:after, #solution span:before, #solution span:after, #code pre code:before, #code pre code:after {
+		background: transparent!important;
+		box-shadow: none!important;
+	}
+	#solution span :not(pre) > code, #problem span :not(pre) > code {
+		background: transparent!important;
+	}
+	#solution span pre, #problem span pre {
+		background: transparent!important;
+	}
+	section > span {
+		orphans: 3; /* pas de ligne seule en bas */
+		widows: 3; /* pas de ligne seule en haut */
+	}
+	table, blockquote, ul, ol {
+		page-break-inside: avoid!important; /* pas de coupure dans ces élements */
+	}
+	section > h1:first-child {
+		background: transparent!important;
+		box-shadow: none!important;
+		border-radius: 0!important;
+		border-top: 0!important;
+		border-left: 0!important;
+		border-right: 0!important;
+		color: #000!important;
+	}
+	section > h1:first-child::after {
+		content: ""!important;
+	}
+	section > h1:first-child::before {
+		background-image: none!important;
+	}
+	h1, h2, h3 , hr {
+		page-break-after: avoid!important; /* pas de saut après ces éléments */
+	}
+	a {
+		color: #000!important;
+		text-decoration: underline!important;
+	}
+	h1 a {
+		text-decoration: none!important;
+	}
+	#documents a {
+		background: transparent!important;
+		border-radius: 0!important;
+		box-shadow: none!important;
+		border: none!important;
+		margin: 0!important;
+		padding-left: 0!important;
+		padding-right: 0!important;
+		height: auto!important;
+		width: auto!important;
+	}
+	#documents a:not(:last-child)::after {
+		content: ", "!important;
+		display: inline-block!important;
+	}
+	#pictures img {
+		border-radius: 0!important;
+		border: 0!important;
+		background: transparent!important;
+		box-shadow: none!important;
+	}
+	#menu {
+		display: none!important;
+	}
+	.wp-super-snow-flake {
+		display: none!important;
+	}
+	#svg {
+		display: none!important;
+	}
+	.tpd-tooltip {	
+		display: none!important;
+	}	
+}

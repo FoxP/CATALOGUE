@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{384F5F16-982B-469B-A076-4803B666A851}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>CATALOGUE.My.MyApplication</StartupObject>
+    <RootNamespace>CATALOGUE</RootNamespace>
+    <AssemblyName>CATALOGUE</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>CATALOGUE.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>CATALOGUE.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ABOUT.Designer.vb">
+      <DependentUpon>ABOUT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABOUT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CATALOGUE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CATALOGUE.Designer.vb">
+      <DependentUpon>CATALOGUE.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPTIONS.Designer.vb">
+      <DependentUpon>OPTIONS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OPTIONS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INI.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SEARCH.Designer.vb">
+      <DependentUpon>SEARCH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SEARCH.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SHAREDCODE.vb" />
+    <Compile Include="SHAREDVAR.vb" />
+    <Compile Include="WAIT.Designer.vb">
+      <DependentUpon>WAIT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WAIT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ABOUT.resx">
+      <DependentUpon>ABOUT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CATALOGUE.resx">
+      <DependentUpon>CATALOGUE.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPTIONS.resx">
+      <DependentUpon>OPTIONS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SEARCH.resx">
+      <DependentUpon>SEARCH.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WAIT.resx">
+      <DependentUpon>WAIT.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PROJECTMAP.cd" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book-open-page-variant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book-open-page-variant-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-circle-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book-open-page-variant.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-circle.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coded_by.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information-small_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information-small_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading_large.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\worm_sound_bye_bye.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\copy-small.png" />
+    <Content Include="Resources\copy.png" />
+    <Content Include="Resources\open-small.png" />
+    <Content Include="Resources\open.png" />
+    <Content Include="Resources\search-small.png" />
+    <Content Include="Resources\search.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

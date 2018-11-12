@@ -1,0 +1,461 @@
+/* ------------------------------------------------------------------------------------*/
+/* Icones des pièces jointes des fiches du catalogue								   */
+/* ------------------------------------------------------------------------------------*/
+
+#documents span a {
+	background-image: url('./IMG/unknown.png');
+	background-repeat: no-repeat;
+	color: #444;
+	background-size: 48px 48px;
+	display: inline-block;
+	height: 36px;
+	line-height: 22px;
+	padding-top: 12px;
+	padding-left: 60px;
+	background-position: center left;
+	border-style: solid;
+    border-width: 2px;
+	border-radius: 8px;
+	border-color: #444;
+	text-decoration: none; 
+	padding-right: 15px;
+	margin-top: 15px;
+	margin-bottom: -5px;
+	margin-right: 10px;
+	background-color: white;
+	box-shadow:2px 2px 10px 0px rgba(0,0,0,0.4);
+	outline: 0;
+}
+#documents span a:hover {
+	transform: translateY(-2px);
+	transition-property: transform;
+    transition-duration: 0.1s;
+}
+#documents span a[href$=".sql"],
+#documents span a[href$=".udl"],
+#documents span a[href$=".sqlite"],
+#documents span a[href$=".db"],
+#documents span a[href$=".mdb"],
+#documents span a[href$=".odb"] {
+	background-image: url('./IMG/sql.png');		
+}
+#documents span a[href$=".emlx"],
+#documents span a[href$=".eml"],
+#documents span a[href$=".msg"],
+#documents span a[href$=".pst"],
+#documents span a[href$=".oft"] {
+	background-image: url('./IMG/msg.png');		
+}
+#documents span a[href$=".pgp"] {
+	background-image: url('./IMG/pgp.png');		
+}
+#documents span a[href$=".axx"],
+#documents span a[href$=".eea"],
+#documents span a[href$=".tc"],
+#documents span a[href$=".cer"] {
+	background-image: url('./IMG/encrypted.png');		
+}
+#documents span a[href$=".zipx"],
+#documents span a[href$=".zip"] {
+	background-image: url('./IMG/zip.png');		
+}
+#documents span a[href$=".tlz"],
+#documents span a[href$=".tgz"],
+#documents span a[href$=".tar.gz"],
+#documents span a[href$=".tar.lzma"],
+#documents span a[href$=".tar.z"],
+#documents span a[href$=".tbz2"],
+#documents span a[href$=".lz"],
+#documents span a[href$=".lzma"],
+#documents span a[href$=".lzo"],
+#documents span a[href$=".xz"],
+#documents span a[href$=".z"],
+#documents span a[href$=".arc"],
+#documents span a[href$=".pak"],
+#documents span a[href$=".pea"],
+#documents span a[href$=".cab"],
+#documents span a[href$=".bz2"],
+#documents span a[href$=".bz"] {
+	background-image: url('./IMG/archive.png');		
+}
+#documents span a[href$=".ace"] {
+	background-image: url('./IMG/ace.png');		
+}
+#documents span a[href$=".s7z"],
+#documents span a[href$=".7z"] {
+	background-image: url('./IMG/7zip.png');		
+}
+#documents span a[href$=".rar"] {
+	background-image: url('./IMG/rar.png');		
+}
+#documents span a[href$=".gz"],
+#documents span a[href$=".gzip"] {
+	background-image: url('./IMG/gzip.png');		
+}
+#documents span a[href$=".jar"] {
+	background-image: url('./IMG/jar.png');		
+}
+#documents span a[href$=".php"] {
+	background-image: url('./IMG/php.png');		
+}
+#documents span a[href$=".pyo"],
+#documents span a[href$=".pyc"],
+#documents span a[href$=".py"] {
+	background-image: url('./IMG/py.png');		
+}
+#documents span a[href$=".jsp"],
+#documents span a[href$=".xhtml"],
+#documents span a[href$=".mhtml"],
+#documents span a[href$=".html"] {
+	background-image: url('./IMG/html.png');		
+}
+#documents span a[href$=".htm"] {
+	background-image: url('./IMG/html.png');		
+}
+#documents span a[href$=".css"] {
+	background-image: url('./IMG/css.png');		
+}
+#documents span a[href$=".java"] {
+	background-image: url('./IMG/java.png');		
+}
+#documents span a[href$=".cpp"] {
+	background-image: url('./IMG/cpp.png');		
+}
+#documents span a[href$=".c"] {
+	background-image: url('./IMG/c.png');		
+}
+#documents span a[href$=".h"] {
+	background-image: url('./IMG/h.png');		
+}
+#documents span a[href$=".hpp"] {
+	background-image: url('./IMG/hpp.png');		
+}
+#documents span a[href$=".js"] {
+	background-image: url('./IMG/js.png');		
+}
+#documents span a[href$=".atom"],
+#documents span a[href$=".rss"],
+#documents span a[href$=".opml"] {
+	background-image: url('./IMG/rss.png');		
+}
+#documents span a[href$=".rb"] {
+	background-image: url('./IMG/rb.png');		
+}
+#documents span a[href$=".torrent"] {
+	background-image: url('./IMG/torrent.png');		
+}
+#documents span a[href$=".vcf"],
+#documents span a[href$=".vcard"] {
+	background-image: url('./IMG/authors.png');		
+}
+#documents span a[href$=".exe"] {
+	background-image: url('./IMG/exe.png');		
+}
+#documents span a[href$=".apk"],
+#documents span a[href$=".deb"] {
+	background-image: url('./IMG/package.png');		
+}
+#documents span a[href$=".psd"] {
+	background-image: url('./IMG/psd.png');		
+}
+#documents span a[href$=".xcf"] {
+	background-image: url('./IMG/xcf.png');		
+}
+#documents span a[href$=".1st"],
+#documents span a[href$=".me"],
+#documents span a[href$=".nfo"],
+#documents span a[href$=".chm"] {
+	background-image: url('./IMG/readme.png');		
+}
+#documents span a[href$=".xlw"],
+#documents span a[href$=".xll"],
+#documents span a[href$=".xls"],
+#documents span a[href$=".xlsm"],
+#documents span a[href$=".xlt"],
+#documents span a[href$=".xltm"],
+#documents span a[href$=".csv"],
+#documents span a[href$=".tsv"],
+#documents span a[href$=".xlam"],
+#documents span a[href$=".xltx"],
+#documents span a[href$=".xla"],
+#documents span a[href$=".ods"],
+#documents span a[href$=".ots"],
+#documents span a[href$=".xlsb"],
+#documents span a[href$=".xlsx"] {
+	background-image: url('./IMG/calc.png');		
+}
+#documents span a[href$=".sldx"],
+#documents span a[href$=".sldm"],
+#documents span a[href$=".ppt"],
+#documents span a[href$=".ppa"],
+#documents span a[href$=".odp"],
+#documents span a[href$=".otp"],
+#documents span a[href$=".ppam"],
+#documents span a[href$=".pptm"],
+#documents span a[href$=".ppsm"],
+#documents span a[href$=".pps"],
+#documents span a[href$=".ppm"],
+#documents span a[href$=".ppx"],
+#documents span a[href$=".pptx"],
+#documents span a[href$=".potx"],
+#documents span a[href$=".potm"],
+#documents span a[href$=".pot"],
+#documents span a[href$=".ppsx"] {
+	background-image: url('./IMG/pres.png');		
+}
+#documents span a[href$=".wbk"],
+#documents span a[href$=".dotx"],
+#documents span a[href$=".docx"],
+#documents span a[href$=".dotm"],
+#documents span a[href$=".dot"],
+#documents span a[href$=".docm"],
+#documents span a[href$=".docb"],
+#documents span a[href$=".odt"],
+#documents span a[href$=".ott"],
+#documents span a[href$=".doc"] {
+	background-image: url('./IMG/doc.png');
+}
+#documents span a[href$=".odf"] {
+	background-image: url('./IMG/odf.png');
+}
+#documents span a[href$=".rtf"] {
+	background-image: url('./IMG/rtf.png');		
+}
+#documents span a[href$=".cgr"],
+#documents span a[href$=".model"],
+#documents span a[href$=".catprocess"],
+#documents span a[href$=".catpart"],
+#documents span a[href$=".catmaterial"],
+#documents span a[href$=".catproduct"],
+#documents span a[href$=".catdrawing"] {
+	background-image: url('./IMG/catia.png');		
+}
+#documents span a[href$=".abf"],
+#documents span a[href$=".ttf"],
+#documents span a[href$=".ttc"],
+#documents span a[href$=".mf"],
+#documents span a[href$=".otf"],
+#documents span a[href$=".woff"],
+#documents span a[href$=".eot"],
+#documents span a[href$=".woff2"] {
+	background-image: url('./IMG/font.png');		
+}
+#documents span a[href$=".md"] {
+	background-image: url('./IMG/markdown.png');		
+}
+#documents span a[href$=".x3d"],
+#documents span a[href$=".dwg"],
+#documents span a[href$=".off"],
+#documents span a[href$=".wrl"],
+#documents span a[href$=".wrml"],
+#documents span a[href$=".xsi"],
+#documents span a[href$=".ztl"],
+#documents span a[href$=".fbx"],
+#documents span a[href$=".scl"],
+#documents span a[href$=".skp"],
+#documents span a[href$=".dae"],
+#documents span a[href$=".obj"],
+#documents span a[href$=".ply"],
+#documents span a[href$=".3ds"],
+#documents span a[href$=".stp"],
+#documents span a[href$=".stl"],
+#documents span a[href$=".blend"],
+#documents span a[href$=".3dxml"],
+#documents span a[href$=".igs"],
+#documents span a[href$=".step"] {
+	background-image: url('./IMG/3d.png');		
+}
+#documents span a[href$=".asc"],
+#documents span a[href$=".txt"] {
+	background-image: url('./IMG/txt.png');		
+}
+#documents span a[href$=".cnf"],
+#documents span a[href$=".ini"],
+#documents span a[href$=".conf"],
+#documents span a[href$=".cfg"] {
+	background-image: url('./IMG/makefile.png');		
+}
+#documents span a[href$=".json"] {
+	background-image: url('./IMG/json.png');		
+}
+#documents span a[href$=".log"] {
+	background-image: url('./IMG/log.png');		
+}
+#documents span a[href$=".src"] {
+	background-image: url('./IMG/source.png');		
+}
+#documents span a[href$=".frm"],
+#documents span a[href$=".frx"],
+#documents span a[href$=".vbs"],
+#documents span a[href$=".catvba"],
+#documents span a[href$=".cls"],
+#documents span a[href$=".bas"],
+#documents span a[href$=".vb"] {
+	background-image: url('./IMG/vb.png');		
+}
+#documents span a[href$=".tex"] {
+	background-image: url('./IMG/tex.png');		
+}
+#documents span a[href$=".bak"],
+#documents span a[href$=".raw"],
+#documents span a[href$=".dat"],
+#documents span a[href$=".bin"] {
+	background-image: url('./IMG/bin.png');		
+}
+#documents span a[href$=".isz"],
+#documents span a[href$=".mdx"],
+#documents span a[href$=".daa"],
+#documents span a[href$=".mds"],
+#documents span a[href$=".nrg"],
+#documents span a[href$=".sdi"],
+#documents span a[href$=".vmdk"],
+#documents span a[href$=".vhd"],
+#documents span a[href$=".cdi"],
+#documents span a[href$=".cdd"],
+#documents span a[href$=".dmg"],
+#documents span a[href$=".iso"] {
+	background-image: url('./IMG/cd.png');		
+}
+#documents span a[href$=".cue"] {
+	background-image: url('./IMG/cue.png');		
+}
+#documents span a[href$=".sh"],
+#documents span a[href$=".cmd"],
+#documents span a[href$=".btm"],
+#documents span a[href$=".bash"],
+#documents span a[href$=".bat"] {
+	background-image: url('./IMG/script.png');		
+}
+#documents span a[href$=".vcal"],
+#documents span a[href$=".ical"] {
+	background-image: url('./IMG/vcal.png');		
+}
+#documents span a[href$=".aac"],
+#documents span a[href$=".amr"],
+#documents span a[href$=".ra"],
+#documents span a[href$=".aiff"],
+#documents span a[href$=".mid"],
+#documents span a[href$=".flac"] {
+	background-image: url('./IMG/audio.png');		
+}
+#documents span a[href$=".asx"],
+#documents span a[href$=".fpl"],
+#documents span a[href$=".m3u"],
+#documents span a[href$=".pla"],
+#documents span a[href$=".pls"],
+#documents span a[href$=".smil"],
+#documents span a[href$=".vlc"],
+#documents span a[href$=".wpl"],
+#documents span a[href$=".xspf"],
+#documents span a[href$=".zpl"] {
+	background-image: url('./IMG/playlist.png');		
+}
+#documents span a[href$=".mp3"] {
+	background-image: url('./IMG/mp3.png');		
+}
+#documents span a[href$=".wma"] {
+	background-image: url('./IMG/wma.png');		
+}
+#documents span a[href$=".ogg"] {
+	background-image: url('./IMG/ogg.png');		
+}
+#documents span a[href$=".wav"] {
+	background-image: url('./IMG/wav.png');		
+}
+#documents span a[href$=".mp4"],
+#documents span a[href$=".webm"],
+#documents span a[href$=".avi"],
+#documents span a[href$=".camrec"],
+#documents span a[href$=".camproj"],
+#documents span a[href$=".3gp"],
+#documents span a[href$=".webm"],
+#documents span a[href$=".asf"],
+#documents span a[href$=".amv"],
+#documents span a[href$=".ts"],
+#documents span a[href$=".webm"],
+#documents span a[href$=".mpeg"],
+#documents span a[href$=".rm"],
+#documents span a[href$=".mov"],
+#documents span a[href$=".flv"],
+#documents span a[href$=".wmv"],
+#documents span a[href$=".mkv"] {
+	background-image: url('./IMG/video.png');		
+}
+#documents span a[href$=".fla"],
+#documents span a[href$=".swf"],
+#documents span a[href$=".flv"] {
+	background-image: url('./IMG/flash.png');		
+}
+#documents span a[href$=".rpm"] {
+	background-image: url('./IMG/rpm.png');		
+}
+#documents span a[href$=".tif"],
+#documents span a[href$=".tiff"] {
+	background-image: url('./IMG/tiff.png');		
+}
+#documents span a[href$=".jpeg"],
+#documents span a[href$=".jpe"],
+#documents span a[href$=".jpg"] {
+	background-image: url('./IMG/jpg.png');		
+}
+#documents span a[href$=".webp"],
+#documents span a[href$=".pic"],
+#documents span a[href$=".img"],
+#documents span a[href$=".exr"],
+#documents span a[href$=".xbm"],
+#documents span a[href$=".pbm"],
+#documents span a[href$=".ppm"],
+#documents span a[href$=".tga"],
+#documents span a[href$=".pxr"],
+#documents span a[href$=".odi"] {
+	background-image: url('./IMG/image.png');		
+}
+#documents span a[href$=".apng"],
+#documents span a[href$=".png"] {
+	background-image: url('./IMG/png.png');		
+}
+#documents span a[href$=".giff"],
+#documents span a[href$=".gif"] {
+	background-image: url('./IMG/gif.png');		
+}
+#documents span a[href$=".bmp"] {
+	background-image: url('./IMG/bmp.png');		
+}
+#documents span a[href$=".ico"] {
+	background-image: url('./IMG/ico.png');		
+}
+#documents span a[href$=".sla"],
+#documents span a[href$=".scd"] {
+	background-image: url('./IMG/scribus.png');		
+}
+#documents span a[href$=".emf"],
+#documents span a[href$=".wmf"],
+#documents span a[href$=".eps"],
+#documents span a[href$=".cgm"],
+#documents span a[href$=".dxf"],
+#documents span a[href$=".svg"],
+#documents span a[href$=".odg"],
+#documents span a[href$=".otg"],
+#documents span a[href$=".vsd"],
+#documents span a[href$=".vss"],
+#documents span a[href$=".vst"],
+#documents span a[href$=".vdx"],
+#documents span a[href$=".vsx"],
+#documents span a[href$=".vsdx"],
+#documents span a[href$=".vssx"],
+#documents span a[href$=".vstx"] {
+	background-image: url('./IMG/draw.png');		
+}
+#documents span a[href$=".dia"] {
+	background-image: url('./IMG/dia.png');		
+}
+#documents span a[href$=".ai"] {
+	background-image: url('./IMG/eps.png');		
+}
+#documents span a[href$=".pdf"] {
+	background-image: url('./IMG/pdf.png');		
+}
+#documents span a[href$=".yaml"],
+#documents span a[href$=".xml"] {
+	background-image: url('./IMG/xml.png');		
+}

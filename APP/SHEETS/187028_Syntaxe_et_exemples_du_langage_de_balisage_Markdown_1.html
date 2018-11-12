@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Syntaxe et exemples du langage de balisage Markdown</title>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/png" href="favicon.png">
+		<link rel="stylesheet" href="./CSS/template/template.css">
+		<link rel="stylesheet" href="./CSS/highlightjs/vs.css">
+		<link rel="stylesheet" href="./CSS/fancybox/jquery.fancybox.css">
+		<link rel="stylesheet" href="./CSS/fancybox/jquery.fancybox-thumbs.css">
+		<link rel="stylesheet" href="./CSS/icons/icons.css">
+		<link rel="stylesheet" href="./CSS/editor/font-awesome.min.css">
+		<link rel="stylesheet" href="./CSS/editor/simplemde.min.css">
+		<link rel="stylesheet" href="./CSS/tipped/tipped.css">
+		<script src="./JS/marked.min.js"></script>
+		<script src="./JS/highlight.pack.js"></script>
+		<script src="./JS/jquery-1.9.0.min.js"></script>
+		<script src="./JS/jquery.fancybox.pack.js"></script>
+		<script src="./JS/jquery.mousewheel.pack.js"></script>
+		<script src="./JS/jquery.fancybox-thumbs.js"></script>
+		<script src="./JS/d3.min.js"></script>
+		<script src="./JS/d3.layout.cloud.js"></script>
+		<script src="./JS/simplemde.min.js"></script>
+		<script src="./JS/qrcode.min.js"></script>
+		<script src="./JS/tipped.min.js"></script>
+		<script src="./JS/ohsnap.min.js"></script>
+	</head>
+	<section>
+		<h1><span>187028</span> — Syntaxe et exemples du langage de balisage Markdown — v<span>1</span></h1>
+		<p id="tags">
+			<span>Released</span>
+			<span>Autre</span>			
+			<span>Autre</span>
+			<span>Process</span>
+			<span>markdown</span>
+			<span>syntaxe</span>
+			<span>langage</span>
+			<span>exemple</span>
+		</p>
+	</section>
+	<section id="problem">
+		<h1>Problème</h1>
+		<span>
+Afin de permettre la création de fiches au contenu riche, certains champs des fiches de ce catalogue permettent l'utilisation du langage de balisage [Markdown](https://fr.wikipedia.org/wiki/Markdown).
+
+Les champs concernés sont les suivants :
+
+- Problème 
+- Solution
+
+![Image](FILES\187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1\Image 1.png)
+
+La syntaxe par l'exemple du langage Markdown est renseignée [ci-dessous](#solution). N'hésitez pas à visionner le code de cette fiche, elle-même rédigée en Markdown !
+
+Pour plus les courageux, la spécification du langage est consultable ici : http://spec.commonmark.org/ ou https://daringfireball.net/projects/markdown/syntax
+
+﻿![Image 2.png](FILES\187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1\Image 2.png)
+
+Pour s'entraîner à la syntaxe du langage Markdown, un éditeur WYSIWYG ("What You See Is What You Get") est disponible [un peu plus bas](#editor) dans cette fiche.
+		</span>
+	</section>
+	<section id="solution">
+		<h1>Solution</h1>
+		<span>
+# Sommaire
+
+*   [Titres](#titles)
+*   [Accentuation](#emphasis)
+*   [Listes](#lists)
+*   [Liens](#links)
+*   [Barre horizontale](#rule)
+*   [Image](#picture)
+*   [Code](#code)
+*   [HTML](#html)
+*   [Tableaux](#table)
+
+---
+
+<h1 id="titles">Titres</h1>
+
+---
+
+```
+Titre 1
+=======
+
+Titre 2
+-------
+
+ou bien :
+
+# Titre1
+## Titre2
+### Titre3
+#### Titre4
+##### Titre5
+###### Titre6
+```
+
+Titre 1
+=======
+
+Titre 2
+-------
+
+ou bien :
+
+# Titre1
+## Titre2
+### Titre3
+#### Titre4
+##### Titre5
+###### Titre6
+
+<h1 id="emphasis">Accentuation</h1>
+
+---
+
+```
+*italique* ou _italique_
+**gras** ou __gras__
+**gras et _italique_**.
+~~barré~~
+```
+
+*italique* ou _italique_
+**gras** ou __gras__
+**gras et _italique_**.
+~~barré~~
+
+<h1 id="lists">Listes</h1>
+
+---
+
+```
+* Element 1
+- Element 2
++ Element 3
+```
+
+* Element 1
+- Element 2
++ Element 3
+
+```
+1. Premier élément ordonné
+2. Second élément ordonné
+	* Premier élément non-ordonné
+	* Second élément non-ordonné
+		* Encore un ?
+		* Allez, un autre
+3. Troisième élément ordonné
+```
+
+1. Premier élément ordonné
+2. Second élément ordonné
+	* Premier élément non-ordonné
+	* Second élément non-ordonné
+		* Encore un ?
+		* Allez, un autre
+3. Troisième élément ordonné
+
+<h1 id="links">Liens</h1>
+
+---
+
+```
+Lien interne avec titre : [Titre du lien interne](FILES\187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1\Markdown - Logo.png)
+
+Lien externe sans titre : https://www.google.com
+Lien externe avec titre : [Titre du lien externe](https://www.google.com)
+
+[1]: https://www.google.com
+[2]: https://fr.wikipedia.org/wiki/Markdown
+Référence du lien 1 : [Titre de la référence du lien 1][1]
+Référence du lien 2 : [Titre de la référence du lien 2][2]
+```
+
+Lien interne avec titre : [Titre du lien interne](FILES\187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1\Markdown - Logo.png)
+
+Lien externe sans titre : https://www.google.com
+Lien externe avec titre : [Titre du lien externe](https://www.google.com)
+
+[1]: https://www.google.com
+[2]: https://fr.wikipedia.org/wiki/Markdown
+Référence du lien 1 : [Titre de la référence du lien 1][1]
+Référence du lien 2 : [Titre de la référence du lien 2][2]
+
+<h1 id="rule">Barre horizontale</h1>
+
+---
+
+```
+---
+ou bien :
+___
+ou alors :
+***
+```
+---
+ou bien :
+___
+ou alors :
+***
+
+<h1 id="picture">Image</h1>
+
+---
+
+```
+Image interne : ![Titre image interne](FILES\187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1\Markdown - Logo.png)
+Image externe : ![Titre image externe](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/208px-Markdown-mark.svg.png)
+```
+
+Image interne : ![Titre image interne](FILES\187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1\Markdown - Logo.png)
+
+Image externe : ![Titre image externe](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/208px-Markdown-mark.svg.png)
+
+<h1 id="code">Code</h1>
+
+---
+
+```
+`print("Code sur une seule ligne !")`
+```
+
+`print("Code sur une seule ligne !")`
+
+<h1 id="html">HTML</h1>
+
+---
+
+```
+&lt;span>
+	&lt;blockquote>Hello, world !&lt;/blockquote>
+	&lt;mark>Surligné !&lt;/mark>
+&lt;/span>
+```
+<span><blockquote>Hello, world !</blockquote><mark>Surligné !</mark></span>
+
+<h1 id="table">Tableaux</h1>
+
+---
+
+```
+Colonne 1 | Colonne 2 | Colonne 3
+--- | --- | ---
+A | B | C
+1 | 2 | 3
+D | E | F
+4 | 5 | 6
+```
+
+Colonne 1 | Colonne 2 | Colonne 3
+--- | --- | ---
+A | B | C
+1 | 2 | 3
+D | E | F
+4 | 5 | 6
+
+Il est bien entendu possible de mettre en gras / italique certains éléments du tableau, ou d'y ajouter des images et des liens hypertextes.
+		</span>
+	</section>	
+	<section id="editor">
+		<h1>Editeur</h1>
+		<span>
+			<textarea id="editortextarea"></textarea>	
+		</span>			
+	</section>
+	<section id="pictures">
+		<h1><a target="_blank" href="FILES/187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1">Photos</a></h1>
+		<span>
+			<a class="galery" rel="alternate" title="Image 1.png" href="FILES/187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1/Image 1.png"><img src="FILES/187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1/Image 1.png" alt="Image 1.png"/></a>
+			<a class="galery" rel="alternate" title="Image 2.png" href="FILES/187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1/Image 2.png"><img src="FILES/187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1/Image 2.png" alt="Image 2.png"/></a>
+			<a class="galery" rel="alternate" title="Markdown - Logo.png" href="FILES/187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1/Markdown - Logo.png"><img src="FILES/187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1/Markdown - Logo.png" alt="Markdown - Logo.png"/></a>
+		</span>
+	</section>
+	<section id="documents">
+		<h1><a target="_blank" href="FILES/187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1">Documents</a></h1>
+		<span>
+			<a target="_blank" href="FILES/187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1/Markdown - Wikipédia.doc">Markdown - Wikipédia.doc</a>
+			<a target="_blank" href="FILES/187028_Syntaxe_et_exemples_du_langage_de_balisage_Markdown_1/Markdown - Wikipédia.pdf">Markdown - Wikipédia.pdf</a>
+		</span>
+	</section>
+	<section id="menu">
+		<img src="./CSS/template/IMG/catalogue.png" id="catalogue" alt="Accéder au catalogue de fiches" title="Accéder au catalogue de fiches"/><img src="./CSS/template/IMG/versions.png" id="versions" alt="Accéder aux versions précédentes" title="Accéder aux versions précédentes"/><img src="./CSS/template/IMG/qrcode.png" id="qrcode" alt="QR Code de la fiche" title="QR Code de la fiche"/><img src="./CSS/template/IMG/folder.png" id="folder" alt="Pièces jointes de la fiche" title="Pièces jointes de la fiche"/><img src="./CSS/template/IMG/print.png" id="print" alt="Imprimer la fiche" title="Imprimer la fiche"/><img src="./CSS/template/IMG/mail.png" id="mail" alt="Envoyer la fiche par mail" title="Envoyer la fiche par mail"/><img src="./CSS/template/IMG/clipboard.png" id="clipboard" alt="Copier le code dans le presse papier" title="Copier le code dans le presse papier"/>
+	</section>
+	<script src="./JS/template.js"></script>
+	<script>
+		new SimpleMDE({
+			element: document.getElementById("editortextarea"),
+			spellChecker: false,
+			toolbarTips: false,
+			promptURLs: true,
+			hideIcons: ["guide"],
+			showIcons: ["code", "table"],
+			status: false,
+			autosave: {
+				enabled: true,
+				unique_id: "editortextarea",
+			},
+		});
+	</script>
+</html>

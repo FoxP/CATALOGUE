@@ -1,0 +1,205 @@
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Feuille de style CSS principale du catalogue	HTML					   			   				   			   				   			       */
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+
+html {
+	background-color: #ececec;
+}
+
+/* Par défaut, le contenu de la page est caché pendant son chargement */
+section {
+	display: none;
+}
+
+/* Police du tableau */
+table td {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	color: #444;
+}
+
+/* Correctif tableau sortant de l'écran */
+table td:last-child {
+	clear: both;
+    max-width: 50px;
+	overflow: hidden;
+    table-layout: fixed;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Titre du catalogue */
+h1 {
+	text-align: center;
+	color: white;
+	border: 1px solid #888888;
+	padding: 10px;
+	margin-top: 18px;
+	border-radius: 3px;
+	box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+	font-weight: 200;
+	background:
+	linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+	linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+	linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+	linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+	linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+	linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+	background-color: #131313;
+	background-size: 20px 20px;
+	text-transform: uppercase;
+}
+
+/* Icone à gauche des titres */
+h1::before {
+	content: "";
+    display: block;
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin: 2px 8px 0 0;
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	background-position: center left;
+}
+
+#stats > h1::before {
+	background-image: url('./IMG/chart.png');
+}
+
+#catalogue > h1::before {
+	background-image: url('./IMG/catalogue.png');
+}
+
+/* Mots clés */
+td span {
+	padding: 0px 10px 0px 10px;
+	border: 1px solid #ccc;
+	border-radius: 1em;
+	background-color: #b8dbff;
+}
+
+/* Hotfixes */
+#external_filter_container_wrapper {
+	margin-bottom: 20px;
+}
+
+#external_filter_container {
+	display: inline-block;
+}
+
+table {
+	border-spacing: 0px;
+}
+
+th, td {
+	padding: 0px;
+}
+
+.hasDatepicker{
+	border-width: 0px;
+}
+
+a, a:visited, a:hover, a:active {
+	color: inherit;
+}
+
+/* Bouton retour en haut de l'écran */
+.scrollup {
+	width: 35px;
+	height: 35px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	color: white!important;
+	text-align: center;
+	background-color: #000;
+	border-radius: 18px;
+	opacity: 0.6;
+	line-height: 2.15em;
+	text-decoration: none; 
+	display: none;
+}
+
+.scrollup:hover {
+	opacity: 0.8;
+}
+
+/* Graphiques statistiques */
+section > #statsCharts {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+section > #statsCharts > span {
+	width: 360px;
+	height: 360px;
+	margin: auto;
+	border: 1px solid #888888;
+	border-radius: 3px;
+	background-color: #ddd;
+	box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
+	padding-bottom: 10px; 
+	margin-bottom: 15px;
+}
+
+/* Masque les colonnes "Créé le" et "Modifié le" si largeur d'écran < 1700px */
+@media all and (max-width: 1700px) {
+	td:nth-of-type(8) , th:nth-of-type(8), td:nth-of-type(9), th:nth-of-type(9) {
+		display: none!important;
+	}
+}
+
+/* Masque les colonnes "Utilisateur" et "Mots-clés" si largeur d'écran < 1300px */
+@media all and (max-width: 1300px) {
+	td:nth-of-type(10) , th:nth-of-type(10), td:nth-of-type(11), th:nth-of-type(11) {
+		display: none!important;
+	}
+}
+
+/* Masque les colonnes "ID" et "Statut" si largeur d'écran < 900px */
+@media all and (max-width: 900px) {
+	td:nth-of-type(1) , th:nth-of-type(1), td:nth-of-type(4), th:nth-of-type(4) {
+		display: none!important;
+	}
+}
+
+/* Pour impression */
+@media print {
+	html, body {
+		background-color: white!important;
+	}
+	#stats {
+		display: none!important;
+	}
+	section > h1:first-child {
+		background: transparent!important;
+		box-shadow: none!important;
+		border-radius: 0!important;
+		border-top: 0!important;
+		border-left: 0!important;
+		border-right: 0!important;
+		color: #000!important;
+	}
+	section > h1:first-child::before {
+		background-image: none!important;
+	}
+	.ui-widget-header, .yadcf-filter-wrapper, .DataTables_sort_icon {
+		display: none!important;
+	}
+	.scrollup {
+		display: none!important;
+	}
+	.ui-state-default {
+		background-image: none!important;
+		background-color: white!important;
+	}
+	th {
+		border-style: hidden!important;
+	}
+	#catalogueTable_wrapper, .dataTables_wrapper, .no-footer {
+		box-shadow: none!important;
+		border-radius: 0!important;
+	}
+}

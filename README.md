@@ -5,7 +5,7 @@ Catalogue Excel / HTML de [snippets](https://fr.wikipedia.org/wiki/Snippet) (por
 Capitalise le savoir tout en fonctionnant sur des systèmes d'exploitation avec des politiques de sécurité (très) strictes :  
 Ne nécessite que [Microsoft Excel](https://fr.wikipedia.org/wiki/Microsoft_Excel) (2010 ou supérieur), [Visual Basic for Applications](https://fr.wikipedia.org/wiki/Visual_Basic_for_Applications) (VBA), ainsi qu'un navigateur internet !  
 
-Initialement développé "from scratch" en une nuit sur un coup de tête, le code source a finalement évolué pendant plus de deux ans, pour donner...tout ça :
+Initialement développé "from scratch" en une nuit sur un coup de tête, le code source a finalement évolué petit à petit (selon mes besoins et la vitesse du vent) pendant un peu plus de deux ans, pour donner...tout ça :
 
 ## Fonctionnalités
 - Compatible multi-utilisateur

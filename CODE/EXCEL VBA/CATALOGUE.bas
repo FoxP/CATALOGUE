@@ -138,7 +138,7 @@ Public bIsOutlookInstalled As Boolean
 Sub definePublicVar()
 
     'Emplacement du catalogue
-    cataloguePath = Application.ThisWorkbook.path
+    cataloguePath = Application.ThisWorkbook.Path
     
     'Feuilles du catalogue
     Set statsSheet = ThisWorkbook.Sheets("STATISTIQUES")
@@ -672,6 +672,115 @@ Sub rebuildHtmlCatalogue()
     
 End Sub
 
+'-----------------------------------------------------------------------------------------------------------------------------------------------
+'Exporte une copie du catalogue pour la version 2 de l'application : REXit
+'-----------------------------------------------------------------------------------------------------------------------------------------------
+Sub exportCatalogue()
+
+    Application.StatusBar = "Export du catalogue en cours..."
+
+    'Verrouillage d'Excel
+    Application.ScreenUpdating = False
+    'Récupération de la feuille active
+    Dim oldSheet As Worksheet
+    Set oldSheet = Application.ActiveSheet
+    'Activation de la feuille "CATALOGUE"
+    catalogueSheet.Activate
+    
+    Dim sExportDirectoryPath As String
+    sExportDirectoryPath = Environ("USERPROFILE") & "\Desktop" & "\CATALOGUE"
+    
+    If folderExists(sExportDirectoryPath) Then
+        deleteFolder (sExportDirectoryPath)
+    End If
+    
+    Call createFolder(sExportDirectoryPath)
+    
+    'Parcourt des fiches de la feuille "CATALOGUE"
+    'Définition des variables publiques de chaque fiche
+    Dim i As Integer: i = 3
+    Do While catalogueSheet.Cells(i, colId).Value <> ""
+        'ID de la fiche
+        dblId = catalogueSheet.Cells(i, colId).Value
+        'Version de la fiche
+        intVersion = catalogueSheet.Cells(i, colVersion).Value
+        
+        Dim sSheetPath As String
+        sSheetPath = sExportDirectoryPath & "\" & CStr(dblId) & "_" & CStr(intVersion)
+        Call createFolder(sSheetPath)
+        
+        'Titre de la fiche
+        strTitle = catalogueSheet.Cells(i, colTitle).Value
+        Call writeToFile(sSheetPath & "\" & "title.txt", strTitle)
+        'Logiciel de la fiche
+        strSoftware = catalogueSheet.Cells(i, colSoftware).Value
+        Call writeToFile(sSheetPath & "\" & "software.txt", strSoftware)
+        'Langage de la fiche
+        strLanguage = catalogueSheet.Cells(i, colLanguage).Value
+        Call writeToFile(sSheetPath & "\" & "language.txt", strLanguage)
+        'Identifiant correspondant au langage pour highlight.js
+        strIDLanguage = getIDLanguage(strLanguage)
+        'Statut de la fiche
+        strStatus = catalogueSheet.Cells(i, colStatus).Value
+        Call writeToFile(sSheetPath & "\" & "status.txt", strStatus)
+        'Type de la fiche
+        strType = catalogueSheet.Cells(i, colType).Value
+        Call writeToFile(sSheetPath & "\" & "type.txt", strType)
+        'Créé le
+        Dim strAddedDate As String
+        strAddedDate = VBA.Left(catalogueSheet.Cells(i, colDatec).Value, 10)
+        Call writeToFile(sSheetPath & "\" & "creationDate.txt", strAddedDate)
+        'Modifié le
+        Dim strModifiedDate As String
+        strModifiedDate = VBA.Left(catalogueSheet.Cells(i, colDatem).Value, 10)
+        Call writeToFile(sSheetPath & "\" & "modificationDate.txt", strModifiedDate)
+        'Utilisateur
+        Dim strUser As String
+        strUser = catalogueSheet.Cells(i, colUser).Value
+        Call writeToFile(sSheetPath & "\" & "user.txt", strUser)
+        
+        'Mots clés de la fiche
+        Dim m As Integer: m = 0
+        While catalogueSheet.Cells(i, colKeywords + m).Value <> ""
+            If m > 0 Then
+                strKeywords = strKeywords & "," & catalogueSheet.Cells(i, colKeywords + m).Value
+            Else
+                strKeywords = catalogueSheet.Cells(i, colKeywords + m).Value
+            End If
+            m = m + 1
+        Wend
+        
+        Call writeToFile(sSheetPath & "\" & "tags.txt", strKeywords)
+        
+        'Code de la fiche
+        strCode = GetBetween(getFileContent(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & ".html"), "<code class=""" & strIDLanguage & """>" & vbNewLine, vbNewLine & vbTab & vbTab & vbTab & "</code>")
+        Call writeToFile(sSheetPath & "\" & "code.txt", specialCharsHtml(strCode))
+        'Problème de la fiche
+        strProblem = GetBetween(getFileContent(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & ".html"), "<h1>Problème</h1>" & vbNewLine & vbTab & vbTab & "<span>" & vbNewLine, vbNewLine & vbTab & vbTab & "</span>")
+        Call writeToFile(sSheetPath & "\" & "problem.txt", strProblem)
+        'Solution de la fiche
+        strSolution = GetBetween(getFileContent(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & ".html"), "<h1>Solution</h1>" & vbNewLine & vbTab & vbTab & "<span>" & vbNewLine, vbNewLine & vbTab & vbTab & "</span>")
+        Call writeToFile(sSheetPath & "\" & "solution.txt", strSolution)
+        'Pièces jointes
+        Call copyFolderFromTo(cataloguePath & sheetsPath & filesPath & "\" & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & "\", sSheetPath & "\files\")
+        
+        i = i + 1
+    Loop
+    
+    'Vidage des variables publiques
+    Call resetPublicVar
+
+    'Réactivation de l'ancienne feuille active
+    oldSheet.Activate
+    'Déverrouillage d'Excel
+    Application.ScreenUpdating = True
+    
+    Application.StatusBar = ""
+    
+    MsgBox "CATALOGUE exporté avec succès :" & vbNewLine & vbNewLine & sExportDirectoryPath, vbInformation, "Export du CATALOGUE"
+    
+End Sub
+
 '===============================================================================================================================================
 '===============================================================================================================================================
 '
@@ -685,7 +794,7 @@ End Sub
 '-----------------------------------------------------------------------------------------------------------------------------------------------
 Function rightClicSendMail()
     'Si la fiche existe
-    If fileExists(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
+    If fileExists(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
         'Export du contenu de la fiche pour la mettre en pièce jointe si souhaité
         Dim sArchivePath As String
         If MsgBox("Inclure la totalité des fichiers de la fiche en pièce jointe ?" & vbNewLine & "Une archive compressée sera générée au préalable.", vbQuestion + vbYesNo, "Export de la fiche") = vbYes Then
@@ -694,7 +803,7 @@ Function rightClicSendMail()
         End If
         Application.StatusBar = "Génération de l'e-mail en cours..."
         Call sendMail(Array(), _
-                      "<body style='font-size:11pt;font-family:Calibri'>" & "<a href='" & path2UNC(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") & "'>" & path2UNC(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") & "</a>" & "</body>", _
+                      "<body style='font-size:11pt;font-family:Calibri'>" & "<a href='" & path2UNC(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") & "'>" & path2UNC(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") & "</a>" & "</body>", _
                       catalogueSheet.Cells(ActiveCell.Row, colTitle).Value, , sArchivePath, 2)
         Application.StatusBar = ""
     End If
@@ -705,8 +814,8 @@ End Function
 '-----------------------------------------------------------------------------------------------------------------------------------------------
 Function rightClicCopyToClipboard()
     'Si la fiche existe
-    If fileExists(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
-        Call CopyToClipboard(specialCharsHtml(GetBetween(getFileContent(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html"), "<code class=""" & getIDLanguage(catalogueSheet.Cells(ActiveCell.Row, colLanguage).Value) & """>" & vbNewLine, vbNewLine & vbTab & vbTab & vbTab & "</code>")))
+    If fileExists(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
+        Call CopyToClipboard(specialCharsHtml(GetBetween(getFileContent(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html"), "<code class=""" & getIDLanguage(catalogueSheet.Cells(ActiveCell.Row, colLanguage).Value) & """>" & vbNewLine, vbNewLine & vbTab & vbTab & vbTab & "</code>")))
     End If
 End Function
 
@@ -715,9 +824,9 @@ End Function
 '-----------------------------------------------------------------------------------------------------------------------------------------------
 Function rightClicOpenSheet()
     'Si la fiche existe
-    If fileExists(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
+    If fileExists(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
         Application.StatusBar = "Ouverture de fiche en cours..."
-        Call browseURL(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html")
+        Call browseURL(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html")
         Application.StatusBar = ""
     End If
 End Function
@@ -727,7 +836,7 @@ End Function
 '-----------------------------------------------------------------------------------------------------------------------------------------------
 Function rightClicOpenFiles()
     'Si la fiche existe
-    If fileExists(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
+    If fileExists(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
         Dim sFolderPath As String
         sFolderPath = cataloguePath & sheetsPath & filesPath & "\" & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value)
         If folderExists(sFolderPath) Then
@@ -751,7 +860,7 @@ Function rightClicExportSheet(Optional ByVal bIsMailAttached As Boolean = False)
     sSheetFileName = sSheetName & ".html"
     'Chemin de la fiche
     Dim sSheetPath As String
-    sSheetPath = Application.ThisWorkbook.path & sheetsPath & sSheetFileName
+    sSheetPath = Application.ThisWorkbook.Path & sheetsPath & sSheetFileName
     'Si la fiche existe
     If fileExists(sSheetPath) Then
     
@@ -800,7 +909,7 @@ Function rightClicExportSheet(Optional ByVal bIsMailAttached As Boolean = False)
         'Copie du fichier HTML de la fiche
         Call copyFileFromTo(sSheetPath, sTempFolder & sSheetFileName, True)
         'Copie du fichier favicon de la fiche
-        Call copyFileFromTo(Application.ThisWorkbook.path & sheetsPath & "favicon.png", sTempFolder & "favicon.png", True)
+        Call copyFileFromTo(Application.ThisWorkbook.Path & sheetsPath & "favicon.png", sTempFolder & "favicon.png", True)
         'Copie du dossier de pièces jointes de la fiche :
         '...s'il existe
         If folderExists(sFolderPath) Then
@@ -811,9 +920,9 @@ Function rightClicExportSheet(Optional ByVal bIsMailAttached As Boolean = False)
             End If
         End If
         'Copie des dépendances JavaScript de la fiche
-        Call copyFolderFromTo(Application.ThisWorkbook.path & sheetsPath & "JS", sTempFolder & "JS")
+        Call copyFolderFromTo(Application.ThisWorkbook.Path & sheetsPath & "JS", sTempFolder & "JS")
         'Copie des dépendances CSS de la fiche
-        Call copyFolderFromTo(Application.ThisWorkbook.path & sheetsPath & "CSS", sTempFolder & "CSS")
+        Call copyFolderFromTo(Application.ThisWorkbook.Path & sheetsPath & "CSS", sTempFolder & "CSS")
         'Ne pas inclure les dépendances CSS et JavaScript de la fiche d'aide au langage Markdown inutilement
         If Not catalogueSheet.Cells(ActiveCell.Row, colId).Value = "187028" Then
             Call deleteFolder(sTempFolder & "CSS" & "\" & "editor")
@@ -857,7 +966,7 @@ End Function
 Function rightClicEditSheet()
 
     'Si la fiche existe
-    If fileExists(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
+    If fileExists(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
         
         Application.StatusBar = "Edition de fiche en cours..."
         
@@ -902,11 +1011,11 @@ Function rightClicEditSheet()
         'Type de la fiche
         strType = catalogueSheet.Cells(rowToEdit, colType).Value
         'Code de la fiche
-        strCode = GetBetween(getFileContent(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & ".html"), "<code class=""" & strIDLanguage & """>" & vbNewLine, vbNewLine & vbTab & vbTab & vbTab & "</code>")
+        strCode = GetBetween(getFileContent(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & ".html"), "<code class=""" & strIDLanguage & """>" & vbNewLine, vbNewLine & vbTab & vbTab & vbTab & "</code>")
         'Problème de la fiche
-        strProblem = GetBetween(getFileContent(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & ".html"), "<h1>Problème</h1>" & vbNewLine & vbTab & vbTab & "<span>" & vbNewLine, vbNewLine & vbTab & vbTab & "</span>")
+        strProblem = GetBetween(getFileContent(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & ".html"), "<h1>Problème</h1>" & vbNewLine & vbTab & vbTab & "<span>" & vbNewLine, vbNewLine & vbTab & vbTab & "</span>")
         'Solution de la fiche
-        strSolution = GetBetween(getFileContent(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & ".html"), "<h1>Solution</h1>" & vbNewLine & vbTab & vbTab & "<span>" & vbNewLine, vbNewLine & vbTab & vbTab & "</span>")
+        strSolution = GetBetween(getFileContent(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & ".html"), "<h1>Solution</h1>" & vbNewLine & vbTab & vbTab & "<span>" & vbNewLine, vbNewLine & vbTab & vbTab & "</span>")
         'Pièces jointes
         Call listFilesFromFolder(cataloguePath & sheetsPath & filesPath & "\" & replaceIllegalChar(dblId & "_" & strTitle & "_" & intVersion) & "\", strFile)
         'Mise à jour de la fiche
@@ -929,7 +1038,7 @@ End Function
 Function rightClicDeleteSheet()
     
     'Si la fiche existe
-    If fileExists(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
+    If fileExists(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
         If MsgBox("Souhaitez vous vraiment supprimer la fiche suivante :" & vbNewLine & vbNewLine & """" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & """", vbYesNo + vbQuestion, "Confirmation de suppression") = vbYes Then
             
             Application.StatusBar = "Suppression de fiche en cours..."
@@ -998,8 +1107,8 @@ End Function
 '-----------------------------------------------------------------------------------------------------------------------------------------------
 Function rightClicCopyUrlToClipboard()
     'Si la fiche existe
-    If fileExists(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
-        Call CopyToClipboard(path2UNC(Application.ThisWorkbook.path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html"))
+    If fileExists(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html") Then
+        Call CopyToClipboard(path2UNC(Application.ThisWorkbook.Path & sheetsPath & replaceIllegalChar(catalogueSheet.Cells(ActiveCell.Row, colId).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colTitle).Value & "_" & catalogueSheet.Cells(ActiveCell.Row, colVersion).Value) & ".html"))
     End If
 End Function
 

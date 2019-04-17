@@ -168,6 +168,7 @@ Function writeToFile(ByVal filePath As String, ByVal strContent As String, Optio
     FileOut.Type = 2
     FileOut.charset = charset
     FileOut.Open
+    On Error Resume Next
     FileOut.WriteText strContent
     FileOut.SaveToFile filePath, 2
     FileOut.Close

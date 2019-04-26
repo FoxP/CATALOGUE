@@ -720,6 +720,9 @@ Sub exportCatalogue()
         Call writeToFile(sSheetPath & "\" & "language.txt", strLanguage)
         'Identifiant correspondant au langage pour highlight.js
         strIDLanguage = getIDLanguage(strLanguage)
+        Call writeToFile(sSheetPath & "\" & "idLanguage.txt", strIDLanguage)
+        'Identifiant correspondant au langage pour highlight.js
+        strIDLanguage = getIDLanguage(strLanguage)
         'Statut de la fiche
         strStatus = catalogueSheet.Cells(i, colStatus).Value
         Call writeToFile(sSheetPath & "\" & "status.txt", strStatus)
